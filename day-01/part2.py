@@ -13,4 +13,4 @@ left_list, right_list = zip(*parsed_input)
 right_list = Counter(right_list)
 
 similarity_score = sum(l * right_list.get(l, 0) for l in left_list)
-print(similarity_score)
+print("Similarity Score:", similarity_score)

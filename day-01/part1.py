@@ -13,4 +13,4 @@ left_list = sorted(left_list)
 right_list = sorted(right_list)
 
 dist = sum(abs(l - r) for l, r in zip(left_list, right_list))
-print(dist)
+print("Distance:", dist)
