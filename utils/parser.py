@@ -10,6 +10,10 @@ class Parser:
 
             for line in lines:
                 values = line.split()
-                parsed_values = [value_type(val) for value_type, val in zip(value_types, values)]
-                parsed_input.append(parsed_values)
+                if callable(value_types):
+                    parsed_input.append([value_types(val) for val in values])
+                elif isinstance(value_types, list):
+                    parsed_input.append([value_type(val) for value_type, val in zip(value_types, values)])
+                else:
+                    raise ValueError("Invalid value_types. Must be callable or list of callables.")
             return parsed_input
