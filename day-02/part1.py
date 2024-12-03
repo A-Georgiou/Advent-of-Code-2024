@@ -22,10 +22,5 @@ def is_minor_decrease(row):
             return False
     return True
 
-safe_count = 0
-
-for row in parsed_input:
-    if check_minor_increase(row) or check_minor_decrease(row):
-        safe_count += 1
-
+safe_count = sum(is_minor_increase(row) or is_minor_decrease(row) for row in parsed_input)
 print("Safe Count:",safe_count)
