@@ -2,7 +2,7 @@ class Parser:
     def __init__(self, file_path):
         self.file_path = file_path
 
-    def parse_input(self, value_types):
+    def parse_lines(self, value_types):
         with open(self.file_path, 'r') as file:
             content = file.read()
             lines = content.splitlines()
@@ -17,3 +17,8 @@ class Parser:
                 else:
                     raise ValueError("Invalid value_types. Must be callable or list of callables.")
             return parsed_input
+    
+    def parse_whole_input(self, value_type):
+        with open(self.file_path, 'r') as file:
+            content = file.read()
+            return value_type(content)

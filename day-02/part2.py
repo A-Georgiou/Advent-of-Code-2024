@@ -6,7 +6,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'utils'))
 from parser import Parser
 
 # Parse input file into rows of int's.
-parsed_input = Parser(file_path='input.txt').parse_input(int)
+parsed_input = Parser(file_path='input.txt').parse_lines(int)
 
 def is_minor_increase(row):
     for i in range(len(row) - 1):

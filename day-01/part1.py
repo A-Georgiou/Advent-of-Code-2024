@@ -6,7 +6,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'utils'))
 from parser import Parser
 
 # Parse input file into [int, int] pairs.
-parsed_input = Parser(file_path='input.txt').parse_input([int, int])
+parsed_input = Parser(file_path='input.txt').parse_lines([int, int])
 
 left_list, right_list = zip(*parsed_input)
 left_list = sorted(left_list)
