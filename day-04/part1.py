@@ -1,4 +1,3 @@
-import re
 import os
 import sys
 
@@ -7,8 +6,7 @@ sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'utils'))
 from parser import Parser
 
 # Parse input file into rows of strings
-parsed_input = Parser(file_path='input.txt').parse_whole_input(str)
-parsed_input = parsed_input.splitlines()
+parsed_input = Parser(file_path='input.txt').parse_whole_input(str).splitlines()
 
 # I only check for right-up-diagonal, right, right-down-diagonal, down directions to avoid duplicate checks.
 directions = [(1, 0), (0, 1), (1, 1), (-1, 1)]
