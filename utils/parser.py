@@ -11,7 +11,7 @@ class Parser:
         except Exception as e:
             raise IOError(f"An error occurred while reading the file: {e}")
 
-    def parse_lines(self, value_types, delimiter=None):
+    def parse_lines(self, value_types, delimiter=None, flatten=False):
         content = self._read_file()
         lines = content.splitlines()
         parsed_input = []
@@ -27,7 +27,7 @@ class Parser:
                     raise ValueError("Invalid value_types. Must be callable or list of callables.")
             except Exception as e:
                 raise ValueError(f"Error parsing line {line_num}: {line}. {e}")
-        return parsed_input
+        return parsed_input if not flatten else [val for sublist in parsed_input for val in sublist]
 
     def parse_sections(self, value_type, section_delimiter="\n\n"):
         content = self._read_file()
