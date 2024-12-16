@@ -2,14 +2,7 @@ import os
 import sys
 sys.path.append(os.path.join(os.path.dirname(__file__), '..', 'utils'))
 from parser import Parser
-from enum import Enum
 from collections import deque
-
-class Direction(Enum):
-    EAST = 1
-    SOUTH = 2
-    WEST = 3
-    NORTH = 4
 
 def find_start(board):
     for i, row in enumerate(board):
